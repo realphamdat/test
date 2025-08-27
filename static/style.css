@@ -1,0 +1,58 @@
+*{box-sizing:border-box}html,body{margin:0;padding:0}body.theme{background:#0f1115;color:#e9edf1;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+:root{--bg:#0f1115;--panel:#141821;--muted:#9aa4b2;--text:#e9edf1;--accent:#7ab7ff;--accent-2:#94f7d0;--danger:#ff6b6b;--border:#222836;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:14px;--radius-sm:10px;--radius-xs:8px;--speed:180ms}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.center{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.card{background:linear-gradient(180deg,#141821,#11151d);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+.title{margin:0 0 10px;font-size:28px;letter-spacing:.3px}
+.subtitle{margin:0 0 6px;font-size:20px}
+.muted{color:var(--muted)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+.badge{background:#1a2230;border:1px solid #273147;border-radius:999px;padding:4px 10px;color:#b8c6d8;font-size:12px}
+.fade-in{animation:fade var(--speed) ease 1}@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.input, .btn, .seg-control, .table, .topbar, .panel{border-radius:var(--radius-sm)}
+.input{width:100%;padding:12px 14px;background:#0c1016;border:1px solid var(--border);color:var(--text);outline:none;transition:border var(--speed),background var(--speed),box-shadow var(--speed)}
+.input:focus{border-color:#2b6cb0;box-shadow:0 0 0 3px rgba(42,111,176,.25)}
+.label{display:block;margin:6px 0 8px;color:#b8c6d8;font-size:13px}
+.btn{appearance:none;border:1px solid var(--border);background:#0c1016;color:var(--text);padding:10px 14px;border-radius:var(--radius-xs);cursor:pointer;transition:transform var(--speed),background var(--speed),border var(--speed),opacity var(--speed)}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn.primary{background:linear-gradient(180deg,#1e76ff,#0e57c9);border-color:#195ccc}
+.btn.danger{background:linear-gradient(180deg,#ff6b6b,#e24b4b);border-color:#e24b4b}
+.btn.small{padding:6px 10px;font-size:13px}
+.row{display:flex;align-items:center}
+.row.gap{gap:10px}
+.row.right{justify-content:flex-end}
+.right{text-align:right}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.grid .grid-col{grid-column:span 6}
+.grid .grid-col.full{grid-column:1/-1}
+@media (max-width:1023px){.grid .grid-col{grid-column:1/-1}}
+.topbar{position:sticky;top:0;background:#0b0e14;border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;z-index:10}
+.brand{font-weight:700;letter-spacing:.4px}
+.panel{background:linear-gradient(180deg,#141821,#11161f);border:1px solid var(--border);padding:18px;margin:18px 0;box-shadow:var(--shadow)}
+.panel-header{margin-bottom:12px}
+.table{overflow:hidden;border:1px solid var(--border)}
+.thead,.trow{display:grid;grid-template-columns:1.6fr .9fr 1.2fr 1.6fr 1.2fr 1fr;gap:8px;padding:12px 14px}
+.thead{background:#0c1119;color:#b8c6d8;border-bottom:1px solid var(--border)}
+.trow{border-bottom:1px solid #1a2130}
+.trow:last-child{border-bottom:none}
+.trow.empty{color:var(--muted)}
+.truncate{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:420px}
+.muted .badge, .muted{opacity:.6}
+.toolbar{padding:12px 0}
+.seg-control{display:flex;gap:10px;padding:8px 10px;background:#0c1016;border:1px solid var(--border)}
+.flash-group{display:grid;gap:8px;margin:10px 0}
+.flash{padding:8px 10px;border-radius:10px;background:#0c1016;border:1px solid var(--border)}
+.flash.success{border-color:#2a9d8f}
+.flash.error{border-color:#e76f51}
+
+.modal{position:fixed;inset:0;display:none}
+.modal[aria-hidden="false"]{display:block}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(2px)}
+.modal-card{position:relative;margin:8vh auto;background:linear-gradient(180deg,#141821,#11161f);border:1px solid var(--border);max-width:560px;width:92%;padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+#toast{position:fixed;right:18px;bottom:18px;display:grid;gap:10px;z-index:20}
+.toast{background:#101521;border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:12px;box-shadow:var(--shadow)}
+
+/* subtle focus/hover effects */
+.table .trow:hover{background:#0e1420}

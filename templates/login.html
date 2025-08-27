@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin Login</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="theme">
+	<div class="container center">
+		<div class="card fade-in" style="max-width:420px;width:100%">
+			<h1 class="title">Admin Login</h1>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+					<div class="flash-group">
+						{% for category, message in messages %}
+							<div class="flash {{ category }}">{{ message }}</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			{% endwith %}
+			<form method="post" action="/login" class="form">
+				<label class="label">Password</label>
+				<input type="password" name="password" class="input" placeholder="Enter admin password" required>
+				<button class="btn primary" type="submit">Login</button>
+			</form>
+		</div>
+	</div>
+	<script src="/static/ui.js"></script>
+</body>
+</html>
