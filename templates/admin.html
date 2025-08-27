@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Key Management</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="theme">
+	<header class="topbar">
+		<div class="brand">Key Manager</div>
+		<div class="actions">
+			<form method="post" action="/logout">
+				<button class="btn" type="submit">Logout</button>
+			</form>
+		</div>
+	</header>
+
+	<main class="container">
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				<div class="flash-group">
+					{% for category, message in messages %}
+						<div class="flash {{ category }}">{{ message }}</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endwith %}
+		<section class="panel">
+			<div class="panel-header">
+				<h2 class="subtitle">Create New Key</h2>
+			</div>
+			<form method="post" action="/admin/keys" class="grid form">
+				<div class="grid-col">
+					<label class="label">Key name</label>
+					<input class="input" name="key_name" placeholder="Unique key name" required>
+				</div>
+				<div class="grid-col">
+					<label class="label">Type</label>
+					<div class="seg-control">
+						<label><input type="radio" name="key_type" value="lifetime" checked> Lifetime</label>
+						<label><input type="radio" name="key_type" value="short"> Short-term</label>
+					</div>
+				</div>
+				<div class="grid-col" id="create-expiry-wrap" style="display:none">
+					<label class="label">Expires at</label>
+					<input class="input" type="datetime-local" name="expires_at">
+				</div>
+				<div class="grid-col full">
+					<label class="label">Note</label>
+					<textarea class="input" name="note" rows="2" placeholder="Payment info, proof, etc."></textarea>
+				</div>
+				<div class="grid-col full">
+					<button class="btn primary" type="submit">Add Key</button>
+				</div>
+			</form>
+		</section>
+
+		<section class="panel">
+			<div class="panel-header row">
+				<h2 class="subtitle">Keys</h2>
+				<div class="meta">Latest version: <span class="badge">{{ latest_version }}</span></div>
+			</div>
+			<div class="toolbar">
+				<form method="get" action="/" class="row gap">
+					<input class="input" name="q" value="{{ query }}" placeholder="Search by key or note">
+					<select class="input" name="status">
+						<option value="all" {% if status=='all' %}selected{% endif %}>All</option>
+						<option value="active" {% if status=='active' %}selected{% endif %}>Active</option>
+						<option value="expired" {% if status=='expired' %}selected{% endif %}>Expired</option>
+					</select>
+					<button class="btn" type="submit">Filter</button>
+				</form>
+			</div>
+
+			<div class="table">
+				<div class="thead">
+					<div>Key</div>
+					<div>Type</div>
+					<div>Expires</div>
+					<div>Note</div>
+					<div>Created</div>
+					<div>Actions</div>
+				</div>
+				{% for k in keys %}
+					<div class="trow {% if k.expired %}muted{% endif %}">
+						<div><span class="mono">{{ k.key_name }}</span></div>
+						<div>{% if k.is_lifetime %}<span class="badge">Lifetime</span>{% else %}Short-term{% endif %}</div>
+						<div>{% if k.is_lifetime %}—{% else %}{{ k.expires_at or '—' }}{% endif %}</div>
+						<div class="truncate" title="{{ k.note or '' }}">{{ k.note or '' }}</div>
+						<div>{{ k.created_at }}</div>
+						<div class="row gap">
+							<button class="btn small" data-edit='{"id":{{ k.id }},"is_lifetime":{{ 1 if k.is_lifetime else 0 }},"expires_at":"{{ k.expires_at or '' }}","note":"{{ (k.note or '').replace('\"','&quot;') }}","key_name":"{{ k.key_name }}"}'>Edit</button>
+							<form method="post" action="/admin/keys/{{ k.id }}/delete" onsubmit="return confirmDelete(event)">
+								<input type="hidden" name="confirm_step" value="1">
+								<button class="btn small danger" type="submit">Delete</button>
+							</form>
+						</div>
+					</div>
+				{% else %}
+					<div class="trow empty">No keys found.</div>
+				{% endfor %}
+			</div>
+		</section>
+	</main>
+
+	<!-- Edit Modal -->
+	<div class="modal" id="edit-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-close></div>
+		<div class="modal-card">
+			<h3 class="subtitle">Edit Key</h3>
+			<form method="post" id="edit-form" class="grid form">
+				<div class="grid-col full">
+					<label class="label">Key name</label>
+					<input class="input" id="edit-key-name" disabled>
+				</div>
+				<div class="grid-col">
+					<label class="label">Type</label>
+					<div class="seg-control">
+						<label><input type="radio" name="key_type" value="lifetime"> Lifetime</label>
+						<label><input type="radio" name="key_type" value="short"> Short-term</label>
+					</div>
+				</div>
+				<div class="grid-col" id="edit-expiry-wrap">
+					<label class="label">Expires at</label>
+					<input class="input" type="datetime-local" name="expires_at" id="edit-expires">
+				</div>
+				<div class="grid-col full">
+					<label class="label">Note</label>
+					<textarea class="input" name="note" id="edit-note" rows="2"></textarea>
+				</div>
+				<div class="grid-col full row gap right">
+					<button class="btn" type="button" data-close>Cancel</button>
+					<button class="btn primary" type="submit">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Delete Double Confirm Modal -->
+	<div class="modal" id="confirm-modal" aria-hidden="true">
+		<div class="modal-backdrop" data-close></div>
+		<div class="modal-card">
+			<h3 class="subtitle">Delete Key</h3>
+			<p>Are you absolutely sure? This action cannot be undone.</p>
+			<div class="row gap right">
+				<button class="btn" data-close>Cancel</button>
+				<button class="btn danger" id="confirm-step-2">Yes, delete</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="toast"></div>
+	<script>
+		window.LATEST_VERSION = "{{ latest_version }}";
+	</script>
+	<script src="/static/ui.js"></script>
+
+</body>
+</html>
