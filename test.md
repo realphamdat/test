@@ -436,9 +436,9 @@ Số chẵn 0-9: {0, 2, 4, 6, 8}
 
 # **PHẦN II: CẤU TRÚC ĐIỀU KHIỂN VÀ HÀM**
 
-## **1. CẤU TRÚC ĐIỀU KHIỂN**
+## **4. CẤU TRÚC ĐIỀU KHIỂN**
 
-### **1.1. Câu lệnh điều kiện (if-elif-else)**
+### **4.1. Câu lệnh điều kiện (if-elif-else)**
 
 **Lý thuyết:**
 Thực thi code khác nhau dựa trên điều kiện đúng/sai.
@@ -493,7 +493,7 @@ else:
 
 ---
 
-### **1.2. Vòng lặp (Loops)**
+### **4.2. Vòng lặp (Loops)**
 
 #### **4.2.1. Vòng lặp for**
 
@@ -661,9 +661,9 @@ Kiểm tra số nguyên tố:
 
 ---
 
-## **2. HÀM (FUNCTIONS)**
+## **5. HÀM (FUNCTIONS)**
 
-### **2.1. Khái niệm và cú pháp cơ bản**
+### **5.1. Khái niệm và cú pháp cơ bản**
 
 **Lý thuyết:**
 Hàm là khối code có tên, thực hiện một nhiệm vụ cụ thể, có thể tái sử dụng.
@@ -763,7 +763,7 @@ Kwargs: {'ten': 'An', 'tuoi': 25}
 
 ---
 
-### **2.2. Phạm vi biến (Variable Scope)**
+### **5.3. Phạm vi biến (Variable Scope)**
 
 **Lý thuyết:**
 
@@ -825,7 +825,7 @@ Sau: 1
 
 ---
 
-### **2.3. Lambda Functions (Hàm ẩn danh)**
+### **5.4. Lambda Functions (Hàm ẩn danh)**
 
 **Lý thuyết:**
 Hàm một dòng, không có tên, tạo bằng từ khóa `lambda`.
@@ -899,7 +899,7 @@ Sắp xếp theo điểm (giảm dần):
 
 ---
 
-### **2.4. Docstrings và Documentation**
+### **5.5. Docstrings và Documentation**
 
 **Lý thuyết:**
 Docstring là chuỗi mô tả hàm, nằm ngay sau định nghĩa.
@@ -990,9 +990,9 @@ Docstring của hàm:
 
 # **PHẦN III: LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG NÂNG CAO**
 
-## **1. KẾ THỪA NÂNG CAO & ABSTRACT CLASSES**
+## **6. KẾ THỪA NÂNG CAO & ABSTRACT CLASSES**
 
-### **1.1. Multiple Inheritance (Đa kế thừa)**
+### **6.1. Multiple Inheritance (Đa kế thừa)**
 
 **Lý thuyết:**
 Cho phép một class kế thừa từ nhiều class cha. Python giải quyết xung đột bằng **MRO (Method Resolution Order)**.
@@ -1051,7 +1051,7 @@ d.show() = B
 
 ---
 
-### **1.2. Abstract Base Classes (ABCs)**
+### **6.2. Abstract Base Classes (ABCs)**
 
 **Lý thuyết:**
 Lớp trừu tượng định nghĩa interface mà các lớp con phải triển khai. Không thể tạo instance trực tiếp.
@@ -1135,7 +1135,7 @@ Lỗi khi tạo Shape: Can't instantiate abstract class Shape with abstract meth
 
 ---
 
-### **1.3. Mixin Classes**
+### **6.3. Mixin Classes**
 
 **Lý thuyết:**
 Mixin là class cung cấp phương thức để được kế thừa bởi các class khác, nhưng không được thiết kế để đứng độc lập.
@@ -1198,7 +1198,7 @@ JSON format: {
 
 ---
 
-## **2. MAGIC METHODS NÂNG CAO**
+## **7. MAGIC METHODS NÂNG CAO**
 
 ### **7.1. Container Protocol**
 
@@ -1463,9 +1463,9 @@ File sẽ tự động đóng.
 
 # **PHẦN IV: EXCEPTION HANDLING & FILE OPERATIONS**
 
-## **1. XỬ LÝ LỖI (EXCEPTION HANDLING)**
+## **8. XỬ LÝ LỖI (EXCEPTION HANDLING)**
 
-### **1.1. try-except cơ bản**
+### **8.1. try-except cơ bản**
 
 **Lý thuyết:**
 Xử lý lỗi trong Python dùng `try-except`. Khi code trong `try` gây lỗi, chương trình chuyển sang `except` thay vì crash.
@@ -1513,7 +1513,7 @@ except Exception as e:   # Bắt tất cả lỗi còn lại
 
 ---
 
-### **1.2. try-except-else-finally**
+### **8.2. try-except-else-finally**
 
 **Lý thuyết:**
 - `else`: Chạy nếu không có lỗi
@@ -1568,7 +1568,7 @@ Kết quả: None
 
 ---
 
-### **1.3. Tạo Custom Exception**
+### **8.3. Tạo Custom Exception**
 
 **Lý thuyết:**
 Tạo exception riêng bằng cách kế thừa từ `Exception`.
@@ -1614,7 +1614,7 @@ for age in ages:
 
 ---
 
-### **1.4. assert statement**
+### **8.4. assert statement**
 
 **Lý thuyết:**
 Dùng `assert` để kiểm tra điều kiện trong development, tự động raise `AssertionError` nếu sai.
@@ -1644,9 +1644,9 @@ Giảm 20% cho 100: 80.0
 
 ---
 
-## **2. FILE HANDLING (XỬ LÝ FILE)**
+## **9. FILE HANDLING (XỬ LÝ FILE)**
 
-### **2.1. Mở và đọc file**
+### **9.1. Mở và đọc file**
 
 **Lý thuyết:**
 Các mode mở file:
@@ -1697,7 +1697,7 @@ Dòng 3: 1,2,3,4,5
 
 ---
 
-### **2.2. Xử lý file nâng cao**
+### **9.2. Xử lý file nâng cao**
 
 **Lý thuyết:**
 - `readline()`: Đọc một dòng
@@ -1743,7 +1743,7 @@ Tất cả dòng (4):
 
 ---
 
-### **2.3. JSON Serialization**
+### **9.3. JSON Serialization**
 
 **Lý thuyết:**
 JSON là định dạng trao đổi dữ liệu phổ biến. Python có module `json`.
@@ -1801,7 +1801,7 @@ Tuổi: 25
 
 ---
 
-### **2.4. CSV File Handling**
+### **9.4. CSV File Handling**
 
 **Lý thuyết:**
 CSV (Comma-Separated Values) là định dạng bảng đơn giản.
@@ -1866,9 +1866,9 @@ with open("users.csv", "r", encoding="utf-8") as f:
 
 # **PHẦN V: MODULES, PACKAGES & STANDARD LIBRARY**
 
-## **1. MODULES VÀ PACKAGES**
+## **10. MODULES VÀ PACKAGES**
 
-### **1.1. Modules là gì?**
+### **10.1. Modules là gì?**
 
 **Lý thuyết:**
 Module là file Python chứa code có thể tái sử dụng (hàm, class, biến).
@@ -1916,7 +1916,7 @@ PI = 3.14159
 
 ---
 
-### **1.2. Packages là gì?**
+### **10.2. Packages là gì?**
 
 **Lý thuyết:**
 Package là collection của nhiều modules, có file `__init__.py`.
@@ -1968,7 +1968,7 @@ Diện tích hình tròn r=5: 78.54
 
 ---
 
-### **1.3. Import System**
+### **10.3. Import System**
 
 **Lý thuyết:**
 Các cách import khác nhau:
@@ -2009,9 +2009,9 @@ Path để tìm modules: ['/current/dir', '/usr/lib/python3.x', '/usr/lib/python
 
 ---
 
-## **2. STANDARD LIBRARY QUAN TRỌNG**
+## **11. STANDARD LIBRARY QUAN TRỌNG**
 
-### **2.1. Collections Module**
+### **11.1. Collections Module**
 
 **Lý thuyết:**
 Module `collections` cung cấp các container data types nâng cao.
@@ -2073,7 +2073,7 @@ Tọa độ x: 10, y: 20
 
 ---
 
-### **2.2. Datetime Module**
+### **11.2. Datetime Module**
 
 **Lý thuyết:**
 Module `datetime` xử lý ngày giờ.
@@ -2132,7 +2132,7 @@ Số ngày từ Tết đến nay: 14
 
 ---
 
-### **2.3. Random Module**
+### **11.3. Random Module**
 
 **Lý thuyết:**
 Module `random` tạo số ngẫu nhiên.
@@ -2178,7 +2178,7 @@ Kết quả giống nhau: True
 
 ---
 
-### **2.4. Pathlib (Modern Path Handling)**
+### **11.4. Pathlib (Modern Path Handling)**
 
 **Lý thuyết:**
 `pathlib` là cách hiện đại để làm việc với file paths (Python 3.4+).
@@ -2246,9 +2246,9 @@ Nội dung file: Hello, Pathlib!
 
 ---
 
-## **3. VIRTUAL ENVIRONMENTS**
+## **12. VIRTUAL ENVIRONMENTS**
 
-### **19.1. Tại sao cần Virtual Environment?**
+### **12.1. Tại sao cần Virtual Environment?**
 
 **Lý thuyết:**
 Virtual environment tạo môi trường Python cô lập cho từng project.
@@ -2259,7 +2259,7 @@ Virtual environment tạo môi trường Python cô lập cho từng project.
 3. Dễ replicate môi trường
 4. An toàn cho system Python
 
-### **19.2. Tạo và sử dụng venv**
+### **12.2. Tạo và sử dụng venv**
 
 **Ví dụ:**
 ```bash
@@ -2297,7 +2297,7 @@ pandas==1.5.0
 
 ---
 
-### **3.1. Pipenv và Poetry (Modern Tools)**
+### **12.3. Pipenv và Poetry (Modern Tools)**
 
 **Lý thuyết:**
 Tools hiện đại quản lý dependencies tốt hơn pip thuần.
@@ -2345,9 +2345,9 @@ pipenv shell
 
 # **PHẦN VI: PRACTICAL PYTHON & BEST PRACTICES**
 
-## **1. REGULAR EXPRESSIONS (REGEX)**
+## **13. REGULAR EXPRESSIONS (REGEX)**
 
-### **1.1. Khái niệm Regex**
+### **13.1. Khái niệm Regex**
 
 **Lý thuyết:**
 Regular Expression là chuỗi đặc biệt mô tả pattern tìm kiếm trong text.
@@ -2395,7 +2395,7 @@ Các item: ['apple', ' banana', ' cherry', 'date']
 
 ---
 
-### **1.2. Regex thực tế**
+### **13.2. Regex thực tế**
 
 **Ví dụ:**
 ```python
@@ -2438,9 +2438,9 @@ Toàn bộ: 0912-345-678
 
 ---
 
-## **2. LOGGING**
+## **14. LOGGING**
 
-### **2.1. Logging cơ bản**
+### **14.1. Logging cơ bản**
 
 **Lý thuyết:**
 Logging ghi lại hoạt động của chương trình, hữu ích cho debug và monitoring.
@@ -2491,7 +2491,7 @@ logging.info(f"Người dùng {user} đã đăng nhập")
 
 ---
 
-### **2.2. Logging nâng cao**
+### **14.2. Logging nâng cao**
 
 **Ví dụ:**
 ```python
@@ -2534,9 +2534,9 @@ ERROR: Có lỗi xảy ra - ghi cả file và console
 
 ---
 
-## **3. COMMAND LINE ARGUMENTS**
+## **15. COMMAND LINE ARGUMENTS**
 
-### **3.1. argparse Module**
+### **15.1. argparse Module**
 
 **Lý thuyết:**
 Xử lý tham số dòng lệnh chuyên nghiệp với `argparse`.
@@ -2598,7 +2598,7 @@ Verbose: Có
 
 ---
 
-### **3.2. Đọc Input từ User**
+### **15.2. Đọc Input từ User**
 
 **Ví dụ:**
 ```python
@@ -2632,9 +2632,9 @@ while True:
 
 ---
 
-## **4. TYPE HINTS & DOCUMENTATION**
+## **16. TYPE HINTS & DOCUMENTATION**
 
-### **4.1. Type Hints**
+### **16.1. Type Hints**
 
 **Lý thuyết:**
 Gợi ý kiểu dữ liệu giúp code rõ ràng, IDE hỗ trợ tốt hơn.
@@ -2679,7 +2679,7 @@ Gấp đôi 5: 10
 
 ---
 
-### **4.2. Documentation chuẩn**
+### **16.2. Documentation chuẩn**
 
 **Lý thuyết:**
 Docstring theo chuẩn giúp generate documentation tự động.
@@ -2759,9 +2759,9 @@ Documentation:
 
 ---
 
-## **5. BEST PRACTICES TỔNG HỢP**
+## **17. BEST PRACTICES TỔNG HỢP**
 
-### **5.1. Code Style (PEP 8)**
+### **17.1. Code Style (PEP 8)**
 
 **Quy tắc chính PEP 8:**
 1. **Thụt lề**: 4 spaces (không dùng tab)
@@ -2810,7 +2810,7 @@ class data_processor:  # Tên class nên PascalCase
 
 ---
 
-### **5.2. Error Handling Best Practices**
+### **17.2. Error Handling Best Practices**
 
 **Nguyên tắc:**
 1. Specific exceptions trước
@@ -2869,7 +2869,7 @@ except (FileNotFoundError, ValueError) as e:
 
 ---
 
-### **5.3. Performance Tips**
+### **17.3. Performance Tips**
 
 **Mẹo tối ưu:**
 1. List comprehension thay cho for loop
@@ -2926,9 +2926,9 @@ join() nhanh hơn 3 lần
 
 # **PHẦN VII: KỸ THUẬT NÂNG CAO**
 
-## **1. DECORATORS (HÀM TRANG TRÍ)**
+## **18. DECORATORS (HÀM TRANG TRÍ)**
 
-### **1.1. Khái niệm Decorator**
+### **18.1. Khái niệm Decorator**
 
 **Lý thuyết:**
 Decorator là hàm nhận một hàm làm tham số, trả về một hàm mới, cho phép thay đổi hành vi mà không sửa code gốc.
@@ -2978,7 +2978,7 @@ Hoàn thành!
 
 ---
 
-### **1.2. Decorator với tham số**
+### **18.2. Decorator với tham số**
 
 **Lý thuyết:**
 Decorator có thể nhận tham số, trở thành **decorator factory** (hàm tạo decorator).
@@ -3032,7 +3032,7 @@ Kết quả: ['Đã chào An', 'Đã chào An', 'Đã chào An']
 
 ---
 
-### **1.3. Decorator cho hàm có tham số**
+### **18.3. Decorator cho hàm có tham số**
 
 **Lý thuyết:**
 Decorator wrapper cần xử lý cả `*args` và `**kwargs` để truyền tham số cho hàm gốc.
@@ -3085,7 +3085,7 @@ print(f"10! = {factorial(10)}")
 
 ---
 
-### **1.4. Class Decorator**
+### **18.4. Class Decorator**
 
 **Lý thuyết:**
 Decorator có thể áp dụng cho class, thay đổi hoặc bổ sung thuộc tính/phương thức.
@@ -3121,9 +3121,9 @@ Hello from Person
 
 ---
 
-## **2. GENERATORS & ITERATORS**
+## **19. GENERATORS & ITERATORS**
 
-### **2.1. Iterators**
+### **19.1. Iterators**
 
 **Lý thuyết:**
 Iterator là đối tượng cho phép duyệt qua collection một phần tử tại một thời điểm.
@@ -3186,7 +3186,7 @@ Dùng next() trực tiếp:
 
 ---
 
-### **2.2. Generators**
+### **19.2. Generators**
 
 **Lý thuyết:**
 Generator là cách đơn giản tạo iterator, dùng từ khóa `yield` thay vì `return`.
@@ -3253,7 +3253,7 @@ Giá trị: [0, 1, 4, 9, 16]
 
 ---
 
-### **2.3. Generator với send() và yield from**
+### **19.3. Generator với send() và yield from**
 
 **Lý thuyết:**
 Generators hỗ trợ tương tác hai chiều:
@@ -3308,9 +3308,9 @@ Chain generators:
 
 ---
 
-## **3. CONTEXT MANAGERS**
+## **20. CONTEXT MANAGERS**
 
-### **3.1. Context Manager với @contextmanager**
+### **20.1. Context Manager với @contextmanager**
 
 **Lý thuyết:**
 Module `contextlib` cung cấp `@contextmanager` để tạo context manager dễ dàng hơn bằng generator.
@@ -3382,7 +3382,7 @@ Nội dung: Hello World
 
 ---
 
-### **3.2. Context Manager thực tế**
+### **20.2. Context Manager thực tế**
 
 **Ví dụ:**
 
@@ -3454,9 +3454,9 @@ except:
 
 # **PHẦN VIII: META-PROGRAMMING & CONCURRENCY**
 
-## **1. METACLASSES & DESCRIPTORS**
+## **21. METACLASSES & DESCRIPTORS**
 
-### **1.1. Khái niệm Metaclass**
+### **21.1. Khái niệm Metaclass**
 
 **Lý thuyết:**
 Metaclass là "class của class". Trong Python, mọi thứ đều là object, kể cả class. Metaclass kiểm soát cách class được tạo ra.
@@ -3518,7 +3518,7 @@ Class tạo bằng type: Hello, An
 
 ---
 
-### **1.2. Tạo Metaclass đơn giản**
+### **21.2. Tạo Metaclass đơn giản**
 
 **Lý thuyết:**
 Metaclass kế thừa từ `type`, có thể override `__new__` hoặc `__init__`.
@@ -3557,7 +3557,7 @@ Kiểu của MyClass: <class '__main__.MyMeta'>
 
 ---
 
-### **10.3. Singleton Pattern với Metaclass**
+### **21.3. Singleton Pattern với Metaclass**
 
 **Lý thuyết:**
 Singleton đảm bảo chỉ có một instance duy nhất của class.
@@ -3610,7 +3610,7 @@ db1 is db2: True
 
 ---
 
-### **1.3. Descriptors (Bộ mô tả)**
+### **21.4. Descriptors (Bộ mô tả)**
 
 **Lý thuyết:**
 Descriptor là object với `__get__()`, `__set__()`, hoặc `__delete__()` kiểm soát việc truy cập attributes.
@@ -3674,7 +3674,7 @@ Sau thay đổi - Tuổi: 30
 
 ---
 
-### **1.4. Property Descriptor**
+### **21.5. Property Descriptor**
 
 **Lý thuyết:**
 `@property` là built-in descriptor decorator, tạo attribute với getter/setter.
@@ -3722,9 +3722,9 @@ Sau thay đổi: 30°C = 86.0°F
 
 ---
 
-## **2. CONCURRENCY & PARALLELISM**
+## **22. CONCURRENCY & PARALLELISM**
 
-### **2.1. Khái niệm cơ bản**
+### **22.1. Khái niệm cơ bản**
 
 **Lý thuyết:**
 - **Concurrency (Đồng thời)**: Nhiều tác vụ được thực hiện xen kẽ
@@ -3745,7 +3745,7 @@ Sau thay đổi: 30°C = 86.0°F
 
 ---
 
-### **2.2. Threading (I/O-bound tasks)**
+### **22.2. Threading (I/O-bound tasks)**
 
 **Lý thuyết:**
 Dùng `threading` module cho I/O operations (network, file, database).
@@ -3794,7 +3794,7 @@ Download nhiều file song song:
 
 ---
 
-### **2.3. Multiprocessing (CPU-bound tasks)**
+### **22.3. Multiprocessing (CPU-bound tasks)**
 
 **Lý thuyết:**
 Dùng `multiprocessing` module cho CPU-intensive tasks.
@@ -3859,7 +3859,7 @@ Multiprocessing cho CPU-bound tasks:
 
 ---
 
-### **2.4. Asyncio (Asynchronous Programming)**
+### **22.4. Asyncio (Asynchronous Programming)**
 
 **Lý thuyết:**
 Dùng `asyncio` cho I/O-bound tasks, sử dụng `async/await`.
@@ -3922,7 +3922,7 @@ Kết quả: ['Data_1', 'Data_2', 'Data_3']
 
 ---
 
-### **2.5. Kết hợp các kỹ thuật**
+### **22.5. Kết hợp các kỹ thuật**
 
 **Ví dụ:**
 
@@ -4000,9 +4000,9 @@ Kết quả async tasks: ['Async_0', 'Async_1', 'Async_2']
 
 # **PHẦN IX: MEMORY MANAGEMENT & OPTIMIZATION**
 
-## **1. QUẢN LÝ BỘ NHỚ TRONG PYTHON**
+## **23. QUẢN LÝ BỘ NHỚ TRONG PYTHON**
 
-### **1.1. Cơ chế Reference Counting**
+### **23.1. Cơ chế Reference Counting**
 
 **Lý thuyết:**
 Python dùng **reference counting** làm cơ chế chính: mỗi object có biến đếm tham chiếu (refcount). Khi refcount = 0, object được giải phóng.
@@ -4041,7 +4041,7 @@ Sau c = [a]: 3
 
 ---
 
-### **1.2. Circular References và Garbage Collection**
+### **23.2. Circular References và Garbage Collection**
 
 **Lý thuyết:**
 **Circular reference** xảy ra khi các object tham chiếu vòng (A → B → A). Reference counting không giải quyết được, cần **Garbage Collector (GC)**.
@@ -4095,9 +4095,9 @@ GC thu thập: 2 object(s)
 
 ---
 
-## **2. TỐI ƯU BỘ NHỚ**
+## **24. TỐI ƯU BỘ NHỚ**
 
-### **2.1. Sử dụng __slots__**
+### **24.1. Sử dụng __slots__**
 
 **Lý thuyết:**
 `__slots__` giảm memory usage bằng cách cố định thuộc tính, thay vì dùng `__dict__` động.
@@ -4161,7 +4161,7 @@ Memory usage:
 
 ---
 
-### **2.2. Tối ưu Memory Usage**
+### **24.2. Tối ưu Memory Usage**
 
 **Lý thuyết:**
 | Kỹ thuật | Mục đích | Ví dụ |
@@ -4221,9 +4221,9 @@ Memory view slice không copy: b'cde'
 
 ---
 
-## **3. PERFORMANCE OPTIMIZATION**
+## **25. PERFORMANCE OPTIMIZATION**
 
-### **3.1. Profiling cơ bản**
+### **25.1. Profiling cơ bản**
 
 **Lý thuyết:**
 Profiling giúp tìm bottlenecks trong code.
@@ -4271,7 +4271,7 @@ Công thức: 0.0000s
 
 ---
 
-### **3.2. Tối ưu thuật toán**
+### **25.2. Tối ưu thuật toán**
 
 **Lý thuyết:**
 Chọn đúng thuật toán quan trọng hơn tối ưu chi tiết.
@@ -4328,7 +4328,7 @@ Nhanh hơn: 1765x
 
 ---
 
-### **3.3. Caching với lru_cache**
+### **25.3. Caching với lru_cache**
 
 **Lý thuyết:**
 `@lru_cache` cache kết quả hàm, hiệu quả cho hàm đệ quy hoặc tính toán nặng.
